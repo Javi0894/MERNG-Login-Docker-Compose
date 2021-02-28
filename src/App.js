@@ -1,15 +1,15 @@
-
-import './App.css';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import Login from "./login/Login";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          <code>Home Admin Frontend</code>
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Redirect exact from="/" to="/login"/>
+        <Route path="/login" component={Login}/>
+      </Switch>
+    </Router>
   );
 }
 
