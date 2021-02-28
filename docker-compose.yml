@@ -1,0 +1,20 @@
+version: "3"
+
+services: 
+  web:
+    container_name: react_node_app
+    restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - mongo
+  mongo:
+    container_name: app_database
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes: 
+      - /c/Users/Javi/Documents/Docker/Databases/app_database:/data/db
+    logging:
+      driver: none
