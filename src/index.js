@@ -9,8 +9,8 @@ const httpLink = new HttpLink({uri:"/graphql"});
 
 const authLink = new ApolloLink((operation, forward) => {
   operation.setContext(({headers = {}}) => {
-    const token = localStorage.getItem("token");
-    if (token){ headers = {...headers, "x-token": token} };
+    const token = localStorage.getItem("x-token");
+    if (token){ console.log(token);headers = {...headers, "x-token": token} }
     return { headers };
   });
   return forward(operation);

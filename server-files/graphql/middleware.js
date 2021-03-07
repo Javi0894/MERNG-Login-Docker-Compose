@@ -6,8 +6,12 @@ const typeDefs = require("./schemas");
 const setGraphQLMiddleware = (app) => {
     const checkActualUser = async req => {
         const token = req.headers["x-token"];
-        if (token) return await jwt.verify(token, "jl57GEMmzVZDovefHHdU");
-        console.log("The user couldnt be identified");
+        // const token = tokenHeader?
+        if (token) {
+            console.log(token);
+            return await jwt.verify(token, "jl57GEMmzVZDovefHHdU")
+        };
+        // console.log("The user couldnt be identified");
         return null;
     }
 
